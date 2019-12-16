@@ -25,15 +25,15 @@ npm install -g @angular/cli
 ng new cube
 ```  
 
-![init angular](./images/create.PNG)
+![init angular](./images/create.png)
   > [__ng new__ Command Reference](https://angular.io/cli/new)
 
 ## Launch the Angular Project
 
   After the angular project creation finished, switch to the directory of the angular project(the directory contains the `angular.json` file). Input the command **`npm start`** or **`ng serve`** to launch the angular project)
 
-![angular launch](./images/angular_launch.PNG)
+![angular launch](./images/angular_launch.png)
 
   After the command execution finished, it will pop up a message to indicate the angular project is launched successfully. Input the `http://localhost:4200`, you can view the default angular project page.
 
-![angular default page](./images/default_page.PNG)
+![angular default page](./images/default_page.png)
