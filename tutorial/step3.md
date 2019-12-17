@@ -1,5 +1,45 @@
 # Update Cube Unit Component From Plane to Cube
 
+## Make Cube Unit Display in screen center
+
+Add the style in the `src\styles.scss` to make the `CubeUnitComponent` display in the screen center.
+
+``` css
+body {
+    margin: 0px;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
+
+We add the css property `display: flex` to use the CSS3 Flex Box for our angular overview Layout. More details in below chapter.
+
+### _CSS Flex Box Layout_
+
+Flex Box Layout is a new added CSS property in CSS3. It makes easier to design flexible responsive layout structure without using float or positioning.
+Before the Flexbox Layout module, there were four layout modes:
+
+- Block, for sections in a webpage  
+- Inline, for text
+- Table, for two-dimensional table data
+- Positioned, for explicit position of an element
+
+> [Help Link: CSS Flex Box Layout W3Schools](https://www.w3schools.com/css/css3_flexbox.asp)
+> [Help Link: CSS Flex Box Layout Tutorial](https://www.runoob.com/w3cnote/flex-grammar.html)
+
+The following style makes all child elements to which the style is applied centered horizontally and vertically
+
+``` css
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
+
 ## Add 6 faces for the cube unit  
 
 - Change the `cube-unit.component.html` html code
@@ -87,31 +127,17 @@ Now the cube show like
 The `:host` CSS pseudo-class selects the shadow host of the shadow DOM containing the CSS it is used inside — in other words, this allows you to select a custom element from inside its shadow DOM.  
 
 > [Help Link (:host CSS)](https://developer.mozilla.org/en-US/docs/Web/CSS/:host)
-> [Help Link (:host -- Angular)](https://angular.io/guide/component-styles#host)  
+> [Help Link (:host Angular)](https://angular.io/guide/component-styles#host)  
 
 When the cube unit component display, the angular framework will create the parent `DOM` element for the component.
 ![host style](images/host_style.png)  
 
-## CSS Flex
+## _CSS Perspective_
 
-Flex Box Layout is new added CSS property in CSS3. It makes easier to design flexible responsive layout structure without using float or positioning.
-Before the Flexbox Layout module, there were four layout modes:
+<span style="font-size: 12px; color: orange; font-style: italic">This is an advanced topic for CSS 3D transformations. You can skip this topic and chapter and just change the CSS perspective to make your 3D vision more comfortable.</span>
 
-- Block, for sections in a webpage  
-- Inline, for text
-- Table, for two-dimensional table data
-- Positioned, for explicit position of an element
+The perspective property is used to give a 3D-positioned element some perspective.
+The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.  
 
-> [Help Link: CSS Flex W3Schools](https://www.w3schools.com/css/css3_flexbox.asp)
-> [Help Link: CSS Flex Layout Tutorial](https://www.runoob.com/w3cnote/flex-grammar.html)
-
-The following style makes all child elements to which the style is applied centered horizontally and vertically
-
-``` CSS
-.box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-```
-
+> [Help Link: CSS perspective](https://www.w3schools.com/cssref/css3_pr_perspective.asp)
+> [Help Link: CSS perspective-origin](https://www.w3schools.com/cssref/css3_pr_perspective-origin.asp)

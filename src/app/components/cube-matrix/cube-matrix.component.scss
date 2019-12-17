@@ -1,0 +1,10 @@
+.cube-container {
+    width: 900px;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective-origin: 95% 5%;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}

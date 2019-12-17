@@ -1,0 +1,6 @@
+{
+    "no-inline-html" : {
+        "allowed_elements" : [ "a", "h1", "h3", "HR", "p", "span" ]
+     },
+     "line-length": false
+}

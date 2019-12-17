@@ -1,12 +1,11 @@
 :host {
-    width: 300px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
     display: flex;
-    perspective-origin: 95% 5%;
-    perspective: 1000px;
-    transform-style: preserve-3d;
     align-items: center;
     justify-content: center;
+    transform-style: preserve-3d;
+    position: absolute;
 }
 
 .face {

@@ -9,7 +9,7 @@
 
 The Angular CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain Angular applications. You can use the tool directly in a command shell, or indirectly through an interactive UI such as Angular Console.
 
-  > [CLI Overview and Command Reference](https://angular.io/guide/setup-local)  
+  > [Angular CLI Overview and Command Reference](https://angular.io/guide/setup-local)  
   > [Angular Setup](https://angular.io/guide/setup-local)
 
 ``` node
@@ -25,7 +25,7 @@ npm install -g @angular/cli
 ng new cube
 ```  
 
-![init angular](./images/create.png)
+![init angular](./images/create.PNG)
   > [__ng new__ Command Reference](https://angular.io/cli/new)
 
 ## Launch the Angular Project
@@ -37,3 +37,4 @@ ng new cube
   After the command execution finished, it will pop up a message to indicate the angular project is launched successfully. Input the `http://localhost:4200`, you can view the default angular project page.
 
 ![angular default page](./images/default_page.png)
+
