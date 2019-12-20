@@ -9,7 +9,7 @@
 
 The Angular CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain Angular applications. You can use the tool directly in a command shell, or indirectly through an interactive UI such as Angular Console.
 
-  > [Angular CLI Overview and Command Reference](https://angular.io/guide/setup-local)  
+  > [Angular CLI Overview and Command Reference](https://angular.io/cli)  
   > [Angular Setup](https://angular.io/guide/setup-local)
 
 ``` node
