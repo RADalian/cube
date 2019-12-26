@@ -98,7 +98,7 @@ Add a container for the cube items and Use the [Angular NgFor directive](https:/
 - Add _css_ code in `cube-matrix.component.scss`:
 
 ``` css
-.cube-container {
+:host {
     width: 900px;
     height: 900px;
     display: flex;
@@ -107,6 +107,14 @@ Add a container for the cube items and Use the [Angular NgFor directive](https:/
     perspective-origin: 95% 5%;
     perspective: 1000px;
     transform-style: preserve-3d;
+}
+
+.cube-container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 ```
 
@@ -130,3 +138,4 @@ Add a container for the cube items and Use the [Angular NgFor directive](https:/
 
 Currently, you still just see only one cube on browser. But there are 27 cubes `DOM` elements on browser. We should change the postion of each cubes and make it display as expected.
 ![cube replace](images/cube_replace.png)
+
