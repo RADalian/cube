@@ -26,6 +26,7 @@
   - Refactor the Component SCSS
 
 - [Step 6: Display Cube Matrix as Expected](./tutorial/step6.md)
-- [Step 7: Add Control to Rotate Cube Matrix](./tutorial/step6.md)
-- [Step 8: Add Control to Rotate Cube Matrix Side](./tutorial/step6.md)
-- [Step 9: Involve Angular Material to Improve GUI](./tutorial/step6.md)
+- [Step 7: Improve The Cube Matrix Face Display](./tutorial/step6.md)
+- [Step 8: Add Control to Rotate Cube Matrix](./tutorial/step6.md)
+- [Step 9: Add Control to Rotate Cube Matrix Side](./tutorial/step6.md)
+- [Step 10: Involve Angular Material to Improve GUI](./tutorial/step6.md)

@@ -12,5 +12,37 @@
 .cube-container {
     width: 300px;
     height: 300px;
+    transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+    transform-style: preserve-3d;
     @extend %flex-box;
+}
+
+#cube-control {
+    position: absolute;
+    left: 5px;
+    top: 5px
+}
+
+#cube-side-control {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.control-panel {
+    align-self: flex-start;
+
+    .control-form {
+        margin: 2px;
+
+        select {
+            width: 120px;
+        }
+        
+        label {
+            display: inline-block;
+            min-width: 100px;
+            font-size: 13px;
+        }
+    }
 }

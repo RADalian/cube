@@ -5,6 +5,7 @@
     height: 100px;
     transform-style: preserve-3d;
     position: absolute;
+    transition: transform 2s cubic-bezier(0, 0, 0.2, 1);
     @extend %flex-box;
 }
 
@@ -17,35 +18,37 @@
   font-size: 60px;
   color: white;
   text-align: center;
+  transition: transform 0.2s;
+  background-color: white;
+  backface-visibility:hidden;
 }
 
 .front {
-  background-color: rgba(0, 0, 0, 0.3);
-  transform: translateZ(50px);
+  // background-color: rgba(0, 0, 0, 0.3);
+  transform: translateZ(50px) scale(0.95);
 }
 
 .back {
-  background-color: rgba(0, 255, 0, 1);
-  color: black;
-  transform: rotateY(180deg) translateZ(50px);
+  // background-color: rgba(0, 255, 0, 1);
+  transform: rotateY(180deg) translateZ(50px) scale(0.95);;
 }
 
 .right {
-  background-color: rgba(196, 0, 0, 0.7);
-  transform: rotateY(90deg) translateZ(50px);
+  // background-color: rgba(196, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(50px) scale(0.95);;
 }
 
 .left {
-  background-color: rgba(0, 0, 196, 0.7);
-  transform: rotateY(-90deg) translateZ(50px);
+  // background-color: rgba(0, 0, 196, 0.7);
+  transform: rotateY(-90deg) translateZ(50px) scale(0.95);;
 }
 
 .top {
-  background-color: rgba(196, 196, 0, 0.7);
-  transform: rotateX(90deg) translateZ(50px);
+  // background-color: rgba(196, 196, 0, 0.7);
+  transform: rotateX(90deg) translateZ(50px) scale(0.95);;
 }
 
 .bottom {
-  background-color: rgba(196, 0, 196, 0.7);
-  transform: rotateX(-90deg) translateZ(50px);
+  // background-color: rgba(196, 0, 196, 0.7);
+  transform: rotateX(-90deg) translateZ(50px) scale(0.95);;
 }

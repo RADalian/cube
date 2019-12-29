@@ -112,6 +112,7 @@ Add a container for the cube items and Use the [Angular NgFor directive](https:/
 .cube-container {
     width: 300px;
     height: 300px;
+    transform-style: preserve-3d;
     display: flex;
     align-items: center;
     justify-content: center;

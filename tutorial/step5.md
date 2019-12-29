@@ -45,6 +45,7 @@ Refactor the `cube-matrix.component.scss`
 .cube-container {
     width: 300px;
     height: 300px;
+    transform-style: preserve-3d;
     @extend %flex-box;
 }
 ```

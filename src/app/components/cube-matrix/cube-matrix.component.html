@@ -1,3 +1,72 @@
-<div class="cube-container">
+<div id="cube-control" class="control-panel">
+    <div class="control-form">
+        <label>Axis:</label>
+        <select #matrixAxisSelect>
+            <option selected value="x">X</option>
+            <option value="y">Y</option>
+            <option value="z">Z</option>
+        </select>
+    </div>
+    <div class="control-form">
+        <label>Angle:</label>
+        <select #matrixAngelSelect>
+            <option selected value="90">90</option>
+            <option value="180">180</option>
+            <option value="270">270</option>
+        </select>
+    </div>
+    <div class="control-form">
+        <label>Clockwise:</label>
+        <select #matrixClockwiseSelect>
+            <option selected value="0">clockwise</option>
+            <option value="1">anti-clockwise</option>
+        </select>
+    </div>
+    <div class="control-form">
+        <button (click)="matrixRotateClick()">Rotate</button>
+        <button (click)="matrixResetClick()">Reset</button>
+    </div>
+</div>
+
+<div id="cube-side-control" class="control-panel">
+    <div class="control-form">
+        <label>Axis:</label>
+        <select #sideAxisSelect>
+            <option selected value="x">X</option>
+            <option value="y">Y</option>
+            <option value="z">Z</option>
+        </select>
+    </div>
+    <div class="control-form">
+        <label>Side:</label>
+        <select #sideSelect>
+            <option selected value="0">Left</option>
+            <option value="1">Middle</option>
+            <option value="2">Right</option>
+        </select>
+    </div>
+    <div class="control-form">
+        <label>Angle:</label>
+        <select #sideAngelSelect>
+            <option selected value="90">90</option>
+            <option value="180">180</option>
+            <option value="270">270</option>
+        </select>
+    </div>
+    <div class="control-form">
+        <label>Clockwise:</label>
+        <select #sideClockwiseSelect>
+            <option selected value="0">clockwise</option>
+            <option value="1">anti-clockwise</option>
+        </select>
+    </div>
+    <div class="control-form">
+        <button (click)="sideRotateClick()">Rotate</button>
+        <button (click)="sideResetClick()">Reset</button>
+    </div>
+</div>
+
+<div class="cube-container" #matrix>
     <app-cube-unit *ngFor="let cube of cubes; let i=index" [index]="i"></app-cube-unit>
 </div>
+ 

@@ -102,6 +102,8 @@ The following style makes all child elements to which the style is applied cente
 You can see the `cube component` page like:
  ![face 6 plane](images/face_6_plane.png)
 
+ You can get the `CSS3 Tranform` knowledge from [Link](https://www.w3school.com.cn/cssref/pr_transform.asp)
+
 To display the 3D perspective, you should add the css as below to the `cube-unit.component.scss`
 
 ``` css
