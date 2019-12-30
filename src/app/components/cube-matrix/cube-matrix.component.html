@@ -18,8 +18,8 @@
     <div class="control-form">
         <label>Clockwise:</label>
         <select #matrixClockwiseSelect>
-            <option selected value="0">clockwise</option>
-            <option value="1">anti-clockwise</option>
+            <option selected value="true">clockwise</option>
+            <option value="false">anti-clockwise</option>
         </select>
     </div>
     <div class="control-form">
@@ -40,9 +40,9 @@
     <div class="control-form">
         <label>Side:</label>
         <select #sideSelect>
-            <option selected value="0">Left</option>
-            <option value="1">Middle</option>
-            <option value="2">Right</option>
+            <option selected value="-1">Back</option>
+            <option value="0">Middle</option>
+            <option value="1">Front</option>
         </select>
     </div>
     <div class="control-form">
@@ -56,13 +56,12 @@
     <div class="control-form">
         <label>Clockwise:</label>
         <select #sideClockwiseSelect>
-            <option selected value="0">clockwise</option>
-            <option value="1">anti-clockwise</option>
+            <option selected value="true">clockwise</option>
+            <option value="false">anti-clockwise</option>
         </select>
     </div>
     <div class="control-form">
         <button (click)="sideRotateClick()">Rotate</button>
-        <button (click)="sideResetClick()">Reset</button>
     </div>
 </div>
 

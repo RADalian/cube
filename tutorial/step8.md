@@ -1,10 +1,10 @@
 # Add Control to Rotate Cube Matrix
 
-After the cube matrix created, it's interesting to add some control to make the cube matrix rotate. To rotate the cube, we need to determine which axis to rotate the cube, how many angles to rotate and whehter the rotation is clockwise. We need add some controls to confirm the action for rotating the cube.  
+After the cube matrix created, it's interesting to add some control to make the cube matrix rotate. To rotate the cube, we need to determine which axis to rotate, how many angles to rotate and whehter the rotation is clockwise. We need add some controls to confirm the action for rotating the cube.  
 
 ## Add The Rotation Action Controls
 
-We need add controls to make the cube rotate
+We need add below HTML controls to make the cube rotate
 
 - HTML control to select which axis to rotate
 - HTML control to select how many angles to rotate
@@ -51,7 +51,7 @@ After thinking of UX, we add the HTML code as below in the `cube-matrix.componen
 
 ```
 
-I want to put these controls in the upper left corner, so I set the position `absolute`. The added style code in the `cube-matrix.component.scss` is as below
+I want to put these controls on the upper left corner, so I set the position `absolute`. The added style code in the `cube-matrix.component.scss` is as below
 
 ``` css
 #cube-control {
@@ -120,3 +120,5 @@ When user click `Rotate`, we get the `select` controls value and perform the rot
 ```
 
 Now you can try the control and make the cube matrix rotate.
+
+![Cube Rotate](./images/cube_rotate.gif)
