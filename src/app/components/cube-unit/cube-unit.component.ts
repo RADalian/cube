@@ -45,22 +45,22 @@ export class CubeUnitComponent implements OnInit {
 
   initFaces() {
     if (this.initPos.x < 0) {
-      this.left.nativeElement.style.backgroundColor = 'rgba(33, 33, 33, 0.3)';
+      this.left.nativeElement.style.backgroundColor = 'rgba(33, 33, 33, 1)';
     }
     if (this.initPos.x > 0) {
-      this.right.nativeElement.style.backgroundColor = 'rgba(255, 236, 96, 0.3)';
+      this.right.nativeElement.style.backgroundColor = 'rgba(255, 236, 96, 1)';
     }
     if (this.initPos.y > 0) {
-      this.bottom.nativeElement.style.backgroundColor = 'rgba(13, 194, 55, 0.3)';
+      this.bottom.nativeElement.style.backgroundColor = 'rgba(13, 194, 55, 1)';
     }
     if (this.initPos.y < 0) {
-      this.top.nativeElement.style.backgroundColor = 'rgba(18, 95, 213, 0.3)';
+      this.top.nativeElement.style.backgroundColor = 'rgba(18, 95, 213, 1)';
     }
     if (this.initPos.z < 0) {
-      this.back.nativeElement.style.backgroundColor = 'rgba(255, 166, 0, 0.3);';
+      this.back.nativeElement.style.backgroundColor = 'rgba(255, 166, 0, 1)';
     }
     if (this.initPos.z > 0) {
-      this.front.nativeElement.style.backgroundColor = 'rgba(212, 26, 27, 0.3)';
+      this.front.nativeElement.style.backgroundColor = 'rgba(212, 26, 27, 1)';
     }
   }
 
