@@ -139,6 +139,7 @@ export class CubeUnitComponent implements OnInit {
     //   }
     // }
 
+
     // if (axis === 'z') {
     //   const oddQuadrant = this.curPos.x * this.curPos.y > 0;
     //   if (!oddRotation) {

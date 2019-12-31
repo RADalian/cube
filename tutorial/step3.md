@@ -27,7 +27,7 @@ Before the Flexbox Layout module, there were four layout modes:
 - Table, for two-dimensional table data
 - Positioned, for explicit position of an element
 
-> [Help Link: CSS Flex Box Layout W3Schools](https://www.w3schools.com/css/css3_flexbox.asp)
+> [Help Link: CSS Flex Box Layout W3Schools](https://www.w3schools.com/css/css3_flexbox.asp)  
 > [Help Link: CSS Flex Box Layout Tutorial](https://www.runoob.com/w3cnote/flex-grammar.html)
 
 The following style makes all child elements to which the style is applied centered horizontally and vertically
