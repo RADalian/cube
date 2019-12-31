@@ -32,14 +32,16 @@ export class CubeMatrixComponent implements OnInit {
 
   matrixRotateClick() {
     const axis = this.matrixAxisSelect.nativeElement.value;
-    const angle = this.matrixAngelSelect.nativeElement.value;
+    const angle = parseInt(this.matrixAngelSelect.nativeElement.value);
     const clockwise = this.matrixClockwiseSelect.nativeElement.value === 'true';
     this.matrix.nativeElement.style.transform +=
       `rotate3d(${axis === 'x' ? 1 : 0}, ${axis === 'y' ? 1 : 0}, ${axis === 'z' ? 1 : 0}, ${clockwise ? '+' : '-'}${angle}deg)`;
+    this.cubeComponents.forEach(c => c.updateCoordinate(axis, angle, clockwise));
   }
 
   matrixResetClick() {
     this.matrix.nativeElement.style.transform = '';
+    this.cubeComponents.forEach(c => c.reset());
   }
 
   sideRotateClick() {
@@ -53,7 +55,6 @@ export class CubeMatrixComponent implements OnInit {
       (axis === 'y' && i.curPos.y === side) ||
       (axis === 'z' && i.curPos.z === side)
      );
-    console.log(targets.length);
     targets.forEach(c => c.rotate(axis, angle, clockwise));
   }
 }

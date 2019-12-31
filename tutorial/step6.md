@@ -28,7 +28,7 @@ As there are 27 cubes for the cube matrix, we can set the first cube the coordin
 
 After illustration, we need begin update the code of `component`
 
-## Pass Parameter to Component
+## Component Interaction
 
 For each `cube-unit.component`, they need get the parameter `index` to update its position. So we add the `index` property and `@Input()` decorator for the property. The `index` property is set by its parent component(`cube-matrix.component`). For the `@input()` angular decorator, you can get the reference from [Link](https://angular.io/api/core/Input).
 
@@ -56,7 +56,7 @@ Now, you can pass the `index` from `cube-matrix.component` to `cube-unit.compone
 
 ## Calculate Cube Position
 
-We need calculate the cube position by passed index. We need add two properties (initial position and current position) for each cube unit position status. We should also initialize the properties in the class `constructor`.
+We need calculate the cube position by passed index. We need add two properties (_initial position_ and _current position_) for each cube unit position status. Then We should also initialize the properties in the class `constructor`.
 
 Also, we need to inject the `host` element in the contructor which we can use to transform.
 

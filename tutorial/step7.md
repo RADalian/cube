@@ -15,60 +15,55 @@ We define 6 faces colors as below and set the face color according to the positi
     <div style="background: rgb(33, 33, 33); height: 10px; width: 10px"></div>
 </div>
 
-## Reset the Face Default Color
+## Reset the Face Color
 
-We need set each face default color to white and set the back back face not visible. We need change the `cube-unit.component.scss` code as below. We comment each face `background-color` and add the default color in the `.face` style. To make the face appearance more comfortable, we add the style `scale(0.95)` to make the face surface smaller. For the `backface-visibility` property, you can refer to [Link](https://www.runoob.com/cssref/css3-pr-backface-visibility.html) for more information.
+First, we need set each face default color to white and set the back face not visible. so we will change the `cube-unit.component.scss` code as below. We comment each face `background-color` and add the default color in the `.face` style. To make the face appearance more comfortable, we change the style `width` and `height` to make the face surface smaller. For the `backface-visibility` property, you can refer to [Link](https://www.runoob.com/cssref/css3-pr-backface-visibility.html).
 
 ``` css
 .face {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
-  font-family: sans-serif;
-  font-size: 60px;
+  width: 98px;
+  height: 98px;
   color: white;
-  text-align: center;
-  transition: transform 0.2s;
   background-color: white;
-  backface-visibility:hidden;
+  backface-visibility: hidden;
 }
 
 .front {
   // background-color: rgba(0, 0, 0, 0.3);
-  transform: translateZ(50px) scale(0.95);
+  transform: translateZ(50px);
 }
 
 .back {
   // background-color: rgba(0, 255, 0, 1);
-  transform: rotateY(180deg) translateZ(50px) scale(0.95);;
+  transform: rotateY(180deg) translateZ(50px);
 }
 
 .right {
   // background-color: rgba(196, 0, 0, 0.7);
-  transform: rotateY(90deg) translateZ(50px) scale(0.95);;
+  transform: rotateY(90deg) translateZ(50px);
 }
 
 .left {
   // background-color: rgba(0, 0, 196, 0.7);
-  transform: rotateY(-90deg) translateZ(50px) scale(0.95);;
+  transform: rotateY(-90deg) translateZ(50px);
 }
 
 .top {
   // background-color: rgba(196, 196, 0, 0.7);
-  transform: rotateX(90deg) translateZ(50px) scale(0.95);;
+  transform: rotateX(90deg) translateZ(50px);
 }
 
 .bottom {
   // background-color: rgba(196, 0, 196, 0.7);
-  transform: rotateX(-90deg) translateZ(50px) scale(0.95);;
+  transform: rotateX(-90deg) translateZ(50px);
 }
 
 ```
 
-## Add Face HTML Element Reference in The Code
+## Add Face HTML Element Reference
 
-If we want to change each cube face DOM element color, we need to get each cube face DOM element reference. In Angular Component, we need first declare the reference name in the `HTML` code.  
+If we want to change each cube face DOM element color by __typescript__ code, we need to get each cube face DOM element reference. In Angular Component, we need first declare the reference name in the `HTML` code.  
 
 1. Change the `cube-unit.component.html` as below and remove the face number.
 
@@ -108,7 +103,7 @@ _You can get the more knowledge about `@ViewChild` in the chapter as below._
 > [Angular Component Interaction Chapter](https://angular.io/guide/component-interaction#component-interaction)  
 > [Angular @ViewChild Topic](https://angular.io/api/core/ViewChild)  
 
-## Add the Method To Update the Face Color
+## Add TS Code To Update the Face Color
 
 After getting the HTML _face_ `DIV` dom element reference, we can add the `typescript` code to update the face color. Add the method and refactor the code of `cube-unit.component.ts` as below
 
@@ -158,7 +153,7 @@ export class CubeUnitComponent implements OnInit {
 
   initFaces() {
     if (this.initPos.x < 0) {
-      this.left.nativeElement.style.backgroundColor = 'red';
+      this.left.nativeElement.style.backgroundColor = 'rgb(33, 33, 33)';
     }
     if (this.initPos.x > 0) {
       this.right.nativeElement.style.backgroundColor = 'rgb(255, 236, 96)';
@@ -170,10 +165,10 @@ export class CubeUnitComponent implements OnInit {
       this.top.nativeElement.style.backgroundColor = 'rgb(18, 95, 213)';
     }
     if (this.initPos.z < 0) {
-      this.back.nativeElement.style.backgroundColor = 'orange';
+      this.back.nativeElement.style.backgroundColor = 'rgb(255, 166, 0)';
     }
     if (this.initPos.z > 0) {
-      this.front.nativeElement.style.backgroundColor = 'rgb(33, 33, 33)';
+      this.front.nativeElement.style.backgroundColor = 'rgb(212, 26, 27)';
     }
   }
 }

@@ -15,7 +15,7 @@ We need add below HTML controls to make the cube rotate
 After thinking of UX, we add the HTML code as below in the `cube-matrix.component.html`
 
 ``` html
-<div class="control-panel">
+<div id="cube-control" class="control-panel">
     <div class="control-form">
         <label>Axis:</label>
         <select #matrixAxisSelect>
@@ -35,8 +35,8 @@ After thinking of UX, we add the HTML code as below in the `cube-matrix.componen
     <div class="control-form">
         <label>Clockwise:</label>
         <select #matrixClockwiseSelect>
-            <option selected value="0">clockwise</option>
-            <option value="1">anti-clockwise</option>
+            <option selected value="true">clockwise</option>
+            <option value="false">anti-clockwise</option>
         </select>
     </div>
     <div class="control-form">
@@ -44,11 +44,6 @@ After thinking of UX, we add the HTML code as below in the `cube-matrix.componen
         <button (click)="matrixResetClick()">Reset</button>
     </div>
 </div>
-
-<div class="cube-container" #matrix>
-    <app-cube-unit *ngFor="let cube of cubes; let i=index" [index]="i"></app-cube-unit>
-</div>
-
 ```
 
 I want to put these controls on the upper left corner, so I set the position `absolute`. The added style code in the `cube-matrix.component.scss` is as below
@@ -86,9 +81,9 @@ Now the new added HTML controls looks like:
 > [Help Link: HTML label](https://www.w3school.com.cn/tags/tag_label.asp)  
 > [Help Link: HTML select](https://www.w3school.com.cn/tags/tag_select.asp)  
 > [Help Link: HTML option](https://www.w3school.com.cn/tags/tag_option.asp)  
-> [Help Link: Angular User Input Binding](https://angular.io/guide/user-input)
+> [Help Link: Angular User Input Binding](https://angular.io/guide/user-input)  
 
-## Add the Control Logic
+## Add the Rotation TS Code
 
 First, we need get the all the `select` controls reference. We need add properties in the `cube-matrix.component.ts`. Also we add the matrix reference together to perform the cube matrix rotation.
 
@@ -113,10 +108,97 @@ When user click `Rotate`, we get the `select` controls value and perform the rot
       `rotate3d(${axis === 'x' ? 1 : 0}, ${axis === 'y' ? 1 : 0}, ${axis === 'z' ? 1 : 0}, ${clockwise === '0' ? '+' : '-'}${angle}deg)`;
   }
 
-    matrixResetClick() {
+  matrixResetClick() {
     this.matrix.nativeElement.style.transform = '';
   }
 ...
+```
+
+## Update Cube Current Postion
+
+If user rotate the cube matrix, all the cubes' postion are changed. We need add the algorithm to calcuate each cube current postion after rotation.
+
+### Add Coordinate Method and Algorithm
+
+After rotation, we will update the cube position. For the cube rotation action, there are three rotation parameter we should care - axis, angle and clockwise.  The rotation angle calculation algorithm, you can go to the [wiki](https://en.wikipedia.org/wiki/Rotation_matrix).
+So we implement a method named `updateCoordinate(...)` to update the cube coordinate the the `rotatePoint(...)` for the point rotation methods.
+
+``` ts
+  updateCoordinate(axis: string, angle: number, clockwise: boolean) {
+    const rotationAngle = clockwise ? -angle : angle;
+    if (axis === 'x') {
+      const rotated = this.rotatePoint({ x: this.curPos.z, y: this.curPos.y }, rotationAngle);
+      this.curPos.z = rotated.x;
+      this.curPos.y = rotated.y;
+    }
+
+    if (axis === 'y') {
+      const rotated = this.rotatePoint({ x: this.curPos.x, y: this.curPos.z }, rotationAngle);
+      this.curPos.x = rotated.x;
+      this.curPos.z = rotated.y;
+    }
+
+    if (axis === 'z') {
+      const rotated = this.rotatePoint({ x: this.curPos.y, y: this.curPos.x }, rotationAngle);
+      this.curPos.y = rotated.x;
+      this.curPos.x = rotated.y;
+    }
+  }
+
+  rotatePoint(oriPoint: IPoint, angle: number): IPoint {
+    const newPoint = { x: 0, y: 0 };
+    const cosa = Math.cos(angle / 180 * Math.PI);
+    const sina = Math.sin(angle / 180 * Math.PI);
+    const cx = oriPoint.x;
+    const cy = oriPoint.y;
+    newPoint.x = Math.round(cosa * cx - sina * cy);
+    newPoint.y = Math.round(sina * cx + cosa * cy);
+    return newPoint;
+  }
+```
+
+Besides, I create an _`IPoint`_ `interface` in new `src\app\modes\cube-point.ts` to keep the 2D point information.
+
+``` ts
+export interface IPoint {
+    x: number;
+    y: number;
+}
+```
+
+### Add Method to Reset Position
+
+It's easy to implement the cube reset the postion. It's just set the style `transform` by its `initPos` property
+
+``` ts
+  reset() {
+    this.hostElement.nativeElement.style.transform =
+      `translate3d(${this.initPos.x * 100}px, ${this.initPos.y * 100}px, ${this.initPos.z * 100}px)`;
+  }
+```
+
+### Refactor the Cube Matrix Component Method
+
+After each rotation, we need to add the coordinate update method invoke.
+
+``` ts
+  matrixRotateClick() {
+    const axis = this.matrixAxisSelect.nativeElement.value;
+    const angle = parseInt(this.matrixAngelSelect.nativeElement.value);
+    const clockwise = this.matrixClockwiseSelect.nativeElement.value === 'true';
+    this.matrix.nativeElement.style.transform +=
+      `rotate3d(${axis === 'x' ? 1 : 0}, ${axis === 'y' ? 1 : 0}, ${axis === 'z' ? 1 : 0}, ${clockwise ? '+' : '-'}${angle}deg)`;
+    this.cubeComponents.forEach(c => c.updateCoordinate(axis, angle, clockwise));
+  }
+```
+
+Also, we need reset the postion when we perform the reset action
+
+``` ts
+  matrixResetClick() {
+    this.matrix.nativeElement.style.transform = '';
+    this.cubeComponents.forEach(c => c.reset());
+  }
 ```
 
 Now you can try the control and make the cube matrix rotate.

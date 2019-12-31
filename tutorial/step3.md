@@ -1,5 +1,7 @@
 # Update Cube Unit Component From Plane to Cube
 
+We need to add more `css` code to improve the cube appearance in the browser. First, we need make the cube display in the screen center.
+
 ## Make Cube Unit Display in screen center
 
 Add the style in the `src\styles.scss` to make the `CubeUnitComponent` display in the screen center.
@@ -10,8 +12,8 @@ body {
     height: 100vh;
     position: relative;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: flex-start;  
+    justify-content: center;  // Center child elements horizontally
 }
 ```
 
@@ -39,6 +41,8 @@ The following style makes all child elements to which the style is applied cente
     justify-content: center;
 }
 ```
+
+Next we need to create 6 faces for the cube component.
 
 ## Add 6 faces for the cube unit  
 
@@ -102,7 +106,7 @@ The following style makes all child elements to which the style is applied cente
 You can see the `cube component` page like:
  ![face 6 plane](images/face_6_plane.png)
 
- You can get the `CSS3 Tranform` knowledge from [Link](https://www.w3school.com.cn/cssref/pr_transform.asp)
+For the `CSS3 Tranform` knowledge, you could get knowledge from [Link](https://www.w3school.com.cn/cssref/pr_transform.asp)
 
 To display the 3D perspective, you should add the css as below to the `cube-unit.component.scss`
 
@@ -121,7 +125,7 @@ To display the 3D perspective, you should add the css as below to the `cube-unit
 
 For the `:host` style, please see more details in the chapter below.
 
-Now the cube show like  
+Now the cube shows as below and it's our expected appearance.  
 ![face 6 cube](images/face_6_cube.png)
 
 ## Component Host Element
@@ -133,13 +137,14 @@ The `:host` CSS pseudo-class selects the shadow host of the shadow DOM containin
 
 When the cube unit component display, the angular framework will create the parent `DOM` element for the component.
 ![host style](images/host_style.png)  
+So you could find there is html element named __app-cube-unit__ in browser.
 
 ## _CSS Perspective_
 
-<span style="font-size: 12px; color: orange; font-style: italic">This is an advanced topic for CSS 3D transformations. You can skip this topic and chapter and just change the CSS perspective to make your 3D vision more comfortable.</span>
+<span style="font-size: 12px; color: orange; font-style: italic">This is an advanced topic for CSS 3D transformations. You can skip this topic and chapter and just change the CSS perspective property to make your 3D vision more comfortable.</span>
 
 The perspective property is used to give a 3D-positioned element some perspective.
 The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.  
 
-> [Help Link: CSS perspective](https://www.w3schools.com/cssref/css3_pr_perspective.asp)
+> [Help Link: CSS perspective](https://www.w3schools.com/cssref/css3_pr_perspective.asp)  
 > [Help Link: CSS perspective-origin](https://www.w3schools.com/cssref/css3_pr_perspective-origin.asp)

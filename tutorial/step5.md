@@ -1,6 +1,6 @@
 # Refactor CSS (By SASS)
 
-You already write more `css` code and you can find __flex box layout__ feature is used in very commonly used. You can find you already write the code in `cube-matrix.component.scss` and `cube-unit.component.scss` below.
+You already write more `css` code and you can find __flex box layout__ feature is very commonly used. You can find there are duplicated `css` code in `cube-matrix.component.scss` and `cube-unit.component.scss` below.
 
 ``` css
 * {
@@ -10,12 +10,13 @@ You already write more `css` code and you can find __flex box layout__ feature i
 }
 ```
 
-It enables child elements to be centered. But it's the duplicated code for scss. We need to refactor to reuse the common flex box layout code.
+The code is to center the child elements. However, it's the duplicated css code in different component. We need to refactor the css code to reuse the common flex box layout style.
 
 > [Help Link: SASS Syntax](https://sass-lang.com/documentation/syntax)
 
 ## Create Common "SCSS" File
 
+To reuse the same `css` code, we need create new file for common style.
 Add a new file `src\app\components\shared.component.scss` and add the code:
 
 ``` css
@@ -28,7 +29,9 @@ Add a new file `src\app\components\shared.component.scss` and add the code:
 
 ## Refactor the Component SCSS
 
-Refactor the `cube-matrix.component.scss`
+Now we will remove the duplicated code and add the common `scss` file reference in each component style file.
+
+- Refactor the `cube-matrix.component.scss`
 
 ``` css
 @import "../shared.component.scss";
@@ -52,7 +55,7 @@ Refactor the `cube-matrix.component.scss`
 
 > [Help: SCSS @extend syntax](https://sass-lang.com/documentation/at-rules/extend)
 
-Refactor the `cube-unit.component.scss`
+- Refactor the `cube-unit.component.scss`
 
 ``` css
 @import "../shared.component.scss";
@@ -68,4 +71,4 @@ Refactor the `cube-unit.component.scss`
 ......
 ```
 
-You can find more feature and knowledge about `SASS` in its website.
+You can find more feature and knowledge about [SASS](https://sass-lang.com/guide) in its website.

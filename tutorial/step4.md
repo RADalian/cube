@@ -1,5 +1,6 @@
 # Construct Cube Matrix Component  
 
+Now we can create a new component name __cube matrix__ which contains 27 cubes to implement real __CUBE__.  
 Add a new component for the cube contains 27 cube units. We expect our new component display like below.
 ![cube raw](images/cube_raw.png)
 
@@ -59,7 +60,7 @@ export class CubeUnit {
 
 ### Add Cube Matrix Properties for Cube Binding
 
-Add the code in the `CubeMatrixComponent` for `cube-matrix.component.html` data binding.
+Add the code in the `CubeMatrixComponent` for `cube-matrix.component.html` data binding. For angular data binding, you should study the angular [template syntax](https://angular.io/guide/template-syntax) for more details.
 
 ``` ts
 import { Component, OnInit } from '@angular/core';
@@ -87,7 +88,9 @@ export class CubeMatrixComponent implements OnInit {
 
 ### Change the Matrix Html Code
 
-Add a container for the cube items and Use the [Angular NgFor directive](https://angular.io/api/common/NgForOf) to create the cubes. For the angular component template syntax, please refer to the [Link](https://angular.io/guide/template-syntax).
+Add a container for the cube items and use the [Angular NgFor directive](https://angular.io/api/common/NgForOf) to create the cubes.
+
+_*ngFor is an angular directive to create same html element. It make to create list elements more easier and no need to write duplicated html code._
 
 - Add _html_ code in `cube-matrix.component.html`:  
 

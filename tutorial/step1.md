@@ -18,15 +18,16 @@ npm install -g @angular/cli
 
 ## Create a new Angular Project  
 
-  input command and create new angular project.  
+  After install the Angular CLI, we can use the `ng` command line to create a new Angular project. You can input the `ng new project-name` in `CMD` to create a new empty project.
   _(please select the option according to the screenshot as below - add **angular routing** and **scss**)_
 
-```node
+``` shell
 ng new cube
 ```  
 
-![init angular](./images/create.PNG)
-  > [__ng new__ Command Reference](https://angular.io/cli/new)
+![init angular](./images/create.PNG)  
+
+> [__ng new__ Command Reference](https://angular.io/cli/new)
 
 ## Launch the Angular Project
 
@@ -34,7 +35,7 @@ ng new cube
 
 ![angular launch](./images/angular_launch.png)
 
-  After the command execution finished, it will pop up a message to indicate the angular project is launched successfully. Input the `http://localhost:4200`, you can view the default angular project page.
+  After the command execution finished, it will pop up a message to indicate the angular project is launched successfully. Input the __`http://localhost:4200`__, you can view the default angular project page.
 
 ![angular default page](./images/default_page.png)
 
