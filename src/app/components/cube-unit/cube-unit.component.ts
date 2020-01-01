@@ -40,6 +40,8 @@ export class CubeUnitComponent implements OnInit {
 
     this.hostElement.nativeElement.style.transform =
       `translate3d(${x * 100}px, ${y * 100}px, ${z * 100}px)`;
+//     this.hostElement.nativeElement.style.transformOrigin = `${-x * 100}px  ${-y * 100}px  ${-z * 100}px`;
+// this.hostElement.nativeElement.style.transformOrigin = `${-x}100%  ${-y * 100}px  ${-z * 100}px`;
   }
 
   initFaces() {
@@ -65,13 +67,14 @@ export class CubeUnitComponent implements OnInit {
 
   rotate(axis: string, angle: number, clockwise: boolean) {
     this.updateCoordinate(axis, angle, clockwise);
-    const curTransform = this.hostElement.nativeElement.style.transform as string;
-    this.hostElement.nativeElement.style.transform =
-      `rotate3d(${axis === 'x' ? 1 : 0}, ${axis === 'y' ? 1 : 0}, ${axis === 'z' ? 1 : 0}, ${clockwise ? '+' : '-'}${angle}deg)`
-      + curTransform;
+    // const curTransform = this.hostElement.nativeElement.style.transform as string;
+    this.hostElement.nativeElement.style.transform +=
+      `rotate3d(${axis === 'x' ? 1 : 0}, ${axis === 'y' ? 1 : 0}, ${axis === 'z' ? 1 : 0}, ${clockwise ? '+' : '-'}${angle}deg) `;
+      // + curTransform;
   }
 
   reset() {
+    this.curPos.setPosition(this.initPos.x, this.initPos.y, this.initPos.z);
     this.hostElement.nativeElement.style.transform =
       `translate3d(${this.initPos.x * 100}px, ${this.initPos.y * 100}px, ${this.initPos.z * 100}px)`;
   }
