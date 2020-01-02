@@ -22,7 +22,7 @@ export class CubeMatrixComponent implements OnInit {
   cubes: CubeUnit[] = [];
 
   constructor() {
-    for (let i = 0; i < 27; i++) {
+    for (let i = 0; i < 1; i++) {
       this.cubes.push(new CubeUnit());
     }
   }
