@@ -23,16 +23,18 @@ export class CubeUnitComponent implements OnInit {
   xAxis: CubeAxis;
   yAxis: CubeAxis;
   zAxis: CubeAxis;
+  axises: CubeAxis[];
 
   constructor(private hostElement: ElementRef) {
     this.initPos = new CubePosition();
     this.curPos = new CubePosition();
-    this.xAxis = new CubeAxis();
+    this.xAxis = new CubeAxis('x');
     this.xAxis.x = 1;
-    this.yAxis = new CubeAxis();
+    this.yAxis = new CubeAxis('y');
     this.yAxis.y = 1;
-    this.zAxis = new CubeAxis();
+    this.zAxis = new CubeAxis('z');
     this.zAxis.z = 1;
+    this.axises = [this.xAxis, this.yAxis, this.zAxis];
   }
 
   ngOnInit() {
@@ -144,7 +146,6 @@ export class CubeUnitComponent implements OnInit {
         break;
       case 'y':
         // tslint:disable-next-line:max-line-length
-        console.log('error');
         this.hostElement.nativeElement.style.transform += `rotate3d(${this.yAxis.x}, ${this.yAxis.y}, ${this.yAxis.z}, ${clockwise ? '+' : '-'}${angle}deg) `;
         break;
       case 'z':
@@ -178,6 +179,14 @@ export class CubeUnitComponent implements OnInit {
       const zAxisRotated = this.rotatePoint({ x: this.zAxis.z, y: this.zAxis.y }, -rotationAngle);
       this.zAxis.z = zAxisRotated.x;
       this.zAxis.y = zAxisRotated.y;
+
+      if (angle / 180 !== 0) {
+        // console.log('swap');
+        // const t = this.yAxis;
+        // this.yAxis = this.zAxis;
+        // this.zAxis = t;
+      }
+
       console.log('x axis: ' + this.xAxis.toString());
       console.log('y axis: ' + this.yAxis.toString());
       console.log('z axis: ' + this.zAxis.toString());
@@ -208,9 +217,17 @@ export class CubeUnitComponent implements OnInit {
       this.yAxis.y = yAxisRotated.x;
       this.yAxis.x = yAxisRotated.y;
 
+      if (angle / 180 !== 0) {
+        // console.log('swap');
+        // const t = this.xAxis;
+        // this.xAxis = this.yAxis;
+        // this.yAxis = t;
+      }
+
       console.log('x axis: ' + this.xAxis.toString());
       console.log('y axis: ' + this.yAxis.toString());
       console.log('z axis: ' + this.zAxis.toString());
+
       // console.log(this.xAxis);
       // console.log(this.yAxis);
 
@@ -218,7 +235,6 @@ export class CubeUnitComponent implements OnInit {
       // this.axis.y = rotatedAxis.x;
       // this.axis.x = rotatedAxis.y;
     }
-
     console.log('Current Position: ' + this.curPos.toString());
   }
 
